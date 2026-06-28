@@ -27,7 +27,7 @@ const CONFIG = {
    *  Optional alternative: prefer Web3Forms instead? Grab a free key at
    *  https://web3forms.com and paste it below — the site will use it.
    */
-  web3formsKey: "",
+  web3formsKey: "be9d7c4a-10c5-4814-96d2-49cee5c0988d",
 
   // ---- Services offered ----
   services: [
