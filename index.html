@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment</title>
+  <meta name="description" content="Request an appointment online — quick, easy, and confirmed by email." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        <span class="brand-name" data-bind="businessName">Your Business</span>
+      </a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#hours">Hours</a>
+        <a href="#book" class="btn btn-sm">Book now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Online booking</p>
+        <h1>Reserve your spot in seconds.</h1>
+        <p class="lead" data-bind="tagline">Pick a service, choose a time that works for you, and we'll confirm your appointment by email.</p>
+        <div class="hero-cta">
+          <a href="#book" class="btn btn-lg">Request an appointment</a>
+          <a href="#services" class="btn btn-ghost btn-lg">See services</a>
+        </div>
+        <ul class="hero-points">
+          <li><span aria-hidden="true">✓</span> No account needed</li>
+          <li><span aria-hidden="true">✓</span> Reply within 24 hours</li>
+          <li><span aria-hidden="true">✓</span> Free to request</li>
+        </ul>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="mini-cal">
+          <div class="mini-cal-head">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+          <p class="mini-cal-title">Upcoming</p>
+          <div class="mini-row"><span class="mini-time">9:00</span><span class="mini-bar w70"></span></div>
+          <div class="mini-row"><span class="mini-time">11:30</span><span class="mini-bar w90"></span></div>
+          <div class="mini-row sel"><span class="mini-time">2:00</span><span class="mini-bar w60"></span><span class="mini-you">you</span></div>
+          <div class="mini-row"><span class="mini-time">4:15</span><span class="mini-bar w40"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <header class="section-head">
+        <h2>Services</h2>
+        <p>Choose what you need — every booking is reviewed personally.</p>
+      </header>
+      <div class="services-grid" id="servicesGrid">
+        <!-- filled by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Booking + Hours ===== -->
+  <section class="section section-alt" id="book">
+    <div class="wrap book-layout">
+      <div class="book-form-col">
+        <header class="section-head left">
+          <h2>Request an appointment</h2>
+          <p>Fill this out and we'll get an email instantly. We'll confirm your time by reply.</p>
+        </header>
+
+        <form id="bookingForm" class="booking-form" novalidate>
+          <div class="field">
+            <label for="name">Your name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Doe" required />
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@email.com" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 123-4567" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="service">Service <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service…</option>
+              <!-- options filled by script.js -->
+            </select>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="date">Preferred date <span class="req">*</span></label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="field">
+              <label for="time">Preferred time <span class="req">*</span></label>
+              <input type="time" id="time" name="time" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes <span class="muted">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+          </div>
+
+          <!-- anti-spam honeypot: hidden from people, tempting to bots -->
+          <div class="hp" aria-hidden="true">
+            <label>Leave this empty</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-block" id="submitBtn">Send appointment request</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="hours-col" id="hours">
+        <div class="hours-card">
+          <h3>Opening hours</h3>
+          <ul class="hours-list" id="hoursList">
+            <!-- filled by script.js -->
+          </ul>
+          <hr />
+          <h3>Get in touch</h3>
+          <p class="contact-line">
+            <span aria-hidden="true">✉</span>
+            <a id="contactEmail" href="#">email us</a>
+          </p>
+          <p class="contact-line" id="contactPhoneWrap">
+            <span aria-hidden="true">☎</span>
+            <a id="contactPhone" href="#">call us</a>
+          </p>
+          <p class="contact-line" id="contactAddrWrap">
+            <span aria-hidden="true">⌖</span>
+            <span id="contactAddr"></span>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year"></span> <span data-bind="businessName">Your Business</span>. All rights reserved.</p>
+      <p class="footer-sub">Online appointment requests · powered by email</p>
+    </div>
+  </footer>
+
+  <!-- ===== Success toast ===== -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive">
+    <span class="toast-icon" aria-hidden="true">✓</span>
+    <span class="toast-msg" id="toastMsg">Request sent!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
